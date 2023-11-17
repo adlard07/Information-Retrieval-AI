@@ -1,0 +1,7 @@
+PyPDF2
+typing
+logging
+datetime
+setuptools
+transformers
+-e.
