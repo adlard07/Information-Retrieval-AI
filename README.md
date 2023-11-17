@@ -1,46 +1,73 @@
-# Business Intelligence Text Generation
-Welcome to the Business Intelligence Text Generation project! This text generation system has been fine-tuned specifically for generating content related to Business Intelligence (BI). Whether you're a data analyst, business executive, or simply interested in BI topics, this tool can help you generate insightful and informative text.
+# ChatGPT Clone
 
+## Overview
+This ChatGPT Clone project is a conversational AI system built by fine-tuning the "microsoft/phi-1_5" language model on a new dataset. The model is trained to understand and generate human-like text responses in a conversational manner. This project aims to provide a customizable and deployable chatbot solution for various applications.
 
-## Prerequisites
-Before you can run this project, make sure you have the following prerequisites installed:
-- Python (3.9 or higher)
-- Node.js and npm
-- Git
+## Model Information
+The underlying model for this project is based on the "microsoft/phi-1_5" language model. Fine-tuning has been applied to adapt the model to a specific domain or use case, enhancing its performance in generating contextually relevant responses.
 
+## Usage
 
-2. Install Python dependencies for the LSTM model:
+### 1. Model Deployment
+Deploy the fine-tuned model to your preferred platform or server.
+
+### 2. Interaction
+Interact with the chatbot by sending messages or queries to the deployed model. The chatbot will respond with contextually appropriate text based on the fine-tuned model.
+
+## Fine-Tuning Data
+The model was fine-tuned on a new dataset containing conversational data specific to the desired application or domain. Due to confidentiality or specific use case requirements, the fine-tuning dataset may not be publicly disclosed.
+
+## Requirements
+- Python 3.x
+- Hugging Face Transformers Library
+- Flask (for deploying the model as a web service)
+
+Install dependencies using:
 ```bash
-pip install -r requirements.txt
+pip install requirements.txt
 ```
 
-## Begin model training: 
-There is no need to install any software or libraries. This system is accessible via a web interface, making it easy to use on any device with an internet connection.
+## Project Structure
 
+### `chatbot.py`
+Contains the code for interacting with the fine-tuned model and generating responses.
+
+### `data/`
+The directory where the fine-tuning dataset is stored (not included in this repository).
+
+### `deployment/`
+Includes files and configurations for deploying the model as a web service.
+
+### `utils.py`
+Utility functions used for data preprocessing and model interaction.
+
+## Deployment
+ Node.js
+ React
+ Flask (for serving the fine-tuned model)
+
+### 1. Set Environment Variables
+Set environment variables for model configuration and deployment settings.
+
+### 2. Run the Flask App
 ```bash
-python -m src.pipeline.model_trainer
+cd deployment
+python app.py
 ```
 
+The chatbot will be accessible at `http://localhost:5000` by default.
 
-## User Registration: 
-You may need to sign up for an account to access certain features or save generated content. Registration is free and takes only a few moments.
+## Future Improvements
+- Continuous fine-tuning on additional data for improved performance.
+- Integration with external services for enhanced functionality.
+- Support for multiple deployment options (e.g., Docker, cloud platforms).
 
+## Contributors
+- [Your Name]
+- [Contributor 1]
+- [Contributor 2]
 
-## Text Generation:
-Choose a topic or provide a brief description of the BI content you need.
-Specify the desired length or word count for the generated text.
-Click the "Generate" button.
-Review and Edit: The system will generate a text based on your input. Review the text and make any necessary edits or customizations.
-```bash
-python -m app
-```
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-
-## Fine-tuning
-The quality and relevance of the generated content are continuously improved through fine-tuning. Our team is dedicated to refining the system's performance for BI topics. If you have specific feedback or suggestions for fine-tuning, please share them with us through the platform.
-
-
-## Contributing
-I welcome contributions from the BI community to help make this text generation system even better. If you have ideas, want to report issues, or are interested in contributing code, please visit my GitHub repository here to get involved.
-
-Thank you for using the Business Intelligence Text Generation system. We hope it enhances your BI content creation process and helps you in your analytical endeavors!
+Feel free to contribute, open issues, or suggest improvements!
