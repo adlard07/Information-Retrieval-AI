@@ -63,9 +63,7 @@ The chatbot will be accessible at `http://localhost:5000` by default.
 - Support for multiple deployment options (e.g., Docker, cloud platforms).
 
 ## Contributors
-- [Your Name]
-- [Contributor 1]
-- [Contributor 2]
+- Adelard Dcunha
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
