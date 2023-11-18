@@ -1,5 +1,6 @@
 import sys
 from dataclasses import dataclass
+from functools import partial
 
 from src.components.data_ingestion import DataIngestion
 from src.components.get_tokenizer_model import GetModels
@@ -37,26 +38,14 @@ class DataTokenizer:
                     break
             example = datasets["train"][i]
             
-            tokenized_example = self.tokenizer(
-                example["question"],
-                example["context"],
-                max_length=self.max_length,
-                truncation="only_second",
-                return_overflowing_tokens=True,
-                return_offsets_mapping=True,
-                stride=self.doc_stride,
+            tokenized_datasets = datasets.map(
+                partial(prepare_train_features, tokenizer=self.tokenizer, pad_on_right=self.tokenizer.eos_token, max_length=self.max_length, doc_stride=self.doc_stride),
+                batched=True,
+                remove_columns=datasets["train"].column_names
                 )
             
-            features = prepare_train_features(
-                datasets["train"],  
-                tokenizer=self.tokenizer, 
-                pad_on_right=self.tokenizer.eos_token, 
-                max_length=self.max_length, 
-                doc_stride=self.doc_stride
-                )
-
             return (
-                features
+                tokenized_datasets
                 )
                        
         except Exception as e:
@@ -65,5 +54,5 @@ class DataTokenizer:
 
 if __name__=='__main__':
     transform = DataTokenizer()
-    features = transform.initiate_data_tokenization()
-    print(features['start_positions'])
+    tokenized_datasets = transform.initiate_data_tokenization()
+    print(tokenized_datasets["train"]['start_positions'])

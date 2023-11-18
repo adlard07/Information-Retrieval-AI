@@ -67,6 +67,6 @@ if __name__=='__main__':
     logging.info("Data Ingestion Complete!")
     print('Data Ingestion Complete!')
     
-    print(type(data['train']))
+    print(data['train'][0])
     print(data)
     

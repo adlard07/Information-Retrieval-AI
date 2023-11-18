@@ -23,7 +23,7 @@ class GetModels:
                 logging.info('Tokenizer available!')
                 print('Tokenizer available!') 
             else:
-                tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+                tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-medium")
                 logging.info('Downloaded Tokenizer!')
                 print('Downloaded Tokenizer!')
                 save_model(tokenizer, self.tokenizer_path)
@@ -49,7 +49,7 @@ class GetModels:
                 save_model(model, self.model_path)
             return (
                 model, 
-                self.model_path
+                self.model_path,
                 )
              
         except Exception as e:
@@ -62,4 +62,3 @@ if __name__=='__main__':
     tokenizer, tokenizer_path = get_models.get_data_tokenizer_object()
     model, model_path = get_models.get_model_object()
     print('Process Complete!')
-    print('\n')
