@@ -1,7 +1,7 @@
 import os
 import sys
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import TFAutoModelForQuestionAnswering, AutoTokenizer
 
 from src.components.get_tokenizer_model import GetModels
 from src.exception import CustomException
@@ -21,7 +21,7 @@ class GenerateText:
             self.tokenizer, _ = get_model.get_data_tokenizer_object()
             
         if os.path.exists(self.model_path):
-            self.model = AutoModelForCausalLM.from_pretrained(self.model_path, trust_remote_code=True)
+            self.model = TFAutoModelForQuestionAnswering.from_pretrained(self.model_path, trust_remote_code=True)
         else:
             self.model, _ = get_model.get_model_object()
         

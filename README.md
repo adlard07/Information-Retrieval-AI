@@ -1,66 +1,50 @@
-# ChatGPT Clone
-
+# Information Retrieval AI / Question Answering AI
+//=============================================
 ## Overview
-This ChatGPT Clone project is a conversational AI system built by fine-tuning the "microsoft/phi-1_5" language model on a new dataset. The model is trained to understand and generate human-like text responses in a conversational manner. This project aims to provide a customizable and deployable chatbot solution for various applications.
+This project implements an Information Retrieval AI system for question answering, utilizing a pre-trained language model. The chosen model is fine-tuned on a specific dataset to create a powerful and context-aware question answering system. The model is designed to understand and respond to user queries based on a given context, making it suitable for applications such as document analysis and content retrieval.
 
-## Model Information
-The underlying model for this project is based on the "microsoft/phi-1_5" language model. Fine-tuning has been applied to adapt the model to a specific domain or use case, enhancing its performance in generating contextually relevant responses.
+## Model Used
+The project employs the pre-trained model: [Specify Pre-trained Model, e.g., "bert-base-uncased"](https://huggingface.co/models).
+
+## Fine-Tuning
+The fine-tuning process involves training the pre-trained model on a custom dataset containing context-question-answer triplets. The objective is to adapt the model to generate accurate and contextually relevant answers to user queries.
 
 ## Usage
 
-### 1. Model Deployment
-Deploy the fine-tuned model to your preferred platform or server.
-
-### 2. Interaction
-Interact with the chatbot by sending messages or queries to the deployed model. The chatbot will respond with contextually appropriate text based on the fine-tuned model.
-
-## Fine-Tuning Data
-The model was fine-tuned on a new dataset containing conversational data specific to the desired application or domain. Due to confidentiality or specific use case requirements, the fine-tuning dataset may not be publicly disclosed.
-
-## Requirements
+### Requirements
 - Python 3.x
-- Hugging Face Transformers Library
-- Flask (for deploying the model as a web service)
+- Required libraries (install using `pip install requirement.txt`)
 
-Install dependencies using:
-```bash
-pip install requirements.txt
-```
+### Steps
+1. **Fine-Tune the Model**
+   - Refer to the fine-tuning script in the `fine_tuning/` directory.
+   - Fine-tune the chosen pre-trained model on your custom question answering dataset.
+
+2. **Set Up the Question Answering System**
+   - Utilize the trained model to build a question answering system.
+   - The system takes a context and a user question as input and outputs the model-generated answer.
+
+3. **Integration**
+   - Integrate the question answering system into your application or interface.
 
 ## Project Structure
 
-### `chatbot.py`
-Contains the code for interacting with the fine-tuned model and generating responses.
+### `fine_tuning/`
+Contains scripts and code for fine-tuning the pre-trained model on a custom question answering dataset.
 
-### `data/`
-The directory where the fine-tuning dataset is stored (not included in this repository).
+### `question_answering/`
+Houses the code for the question answering system, including input processing and answer generation.
 
-### `deployment/`
-Includes files and configurations for deploying the model as a web service.
+### `utils/`
+Utility scripts and functions used across the project.
 
-### `utils.py`
-Utility functions used for data preprocessing and model interaction.
-
-## Deployment
- Node.js
- React
- Flask (for serving the fine-tuned model)
-
-### 1. Set Environment Variables
-Set environment variables for model configuration and deployment settings.
-
-### 2. Run the Flask App
-```bash
-cd deployment
-python app.py
-```
-
-The chatbot will be accessible at `http://localhost:5000` by default.
+## Configuration
+Adjust the configuration parameters in the respective `config` files to customize the behavior of the fine-tuned model and the question answering system.
 
 ## Future Improvements
-- Continuous fine-tuning on additional data for improved performance.
-- Integration with external services for enhanced functionality.
-- Support for multiple deployment options (e.g., Docker, cloud platforms).
+- Explore ensemble methods for combining multiple pre-trained models for improved accuracy.
+- Implement feedback mechanisms for continuous improvement through user interactions.
+- Enhance the system's scalability for handling larger datasets and multiple users simultaneously.
 
 ## Contributors
 - Adelard Dcunha

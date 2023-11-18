@@ -25,6 +25,7 @@ class ModelTrainer:
         get_model = GetModels()
         self.model, _ = get_model.get_model_object()
         self.tokenizer, _ = get_model.get_data_tokenizer_object()
+        self.model_path = 'artifacts/finetuned'
             
         # Tokenized data
         data = DataTokenizer()
@@ -34,7 +35,7 @@ class ModelTrainer:
         self.batch_size = 16
         self.learning_rate = 2e-5
         self.weight_decay = 0.01
-        self.epochs = 2
+        self.epochs = 1
         
         #huggingface model upload
         self.push_to_hub_model_id = f"chatGPT-clone-finetuned-squad"
@@ -59,26 +60,25 @@ class ModelTrainer:
         )
 
         # Compile model
-        # self.model.compile(optimizer=optimizer, jit_compile=True, metrics=["accuracy"])
+        self.model.compile(optimizer=optimizer, jit_compile=True, metrics=["accuracy"])
         
         return (
             self.model,
+            self.model_path,
             train_set,
-            validation_set, self.epochs
+            validation_set, 
+            self.epochs
             )
         
 if __name__=='__main__':
 
     model_trainer = ModelTrainer()
-    model, train_set, val_set, epochs = model_trainer.model_params()
-    print(train_set)
+    model, model_path, train_set, val_set, epochs = model_trainer.model_params()
     
-    model.fit(train_set, validation_data=val_set, epochs=epochs)
+    model.fit(
+        train_set,
+        validation_data=val_set,
+        epochs=epochs,
+    )
     
-    # padded_sequences, trainer = model_trainer.model_initialize(train_encodings)
-    # trainer.train() 
-    # print("Model Training Complete")
-    # print(padded_sequences)
-    
-    # save_model(model)
-    # print("Model Saved!")
+    save_model(model, model_path)
