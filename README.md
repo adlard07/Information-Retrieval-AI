@@ -4,7 +4,7 @@
 This project implements an Information Retrieval AI system for question answering, utilizing a pre-trained language model. The chosen model is fine-tuned on a specific dataset to create a powerful and context-aware question answering system. The model is designed to understand and respond to user queries based on a given context, making it suitable for applications such as document analysis and content retrieval.
 
 ## Model Used
-The project employs the pre-trained model: [Specify Pre-trained Model, e.g., "bert-base-uncased"](https://huggingface.co/bert-base-uncased).
+The project employs the pre-trained model: [Specify Pre-trained Model](https://huggingface.co/bert-base-uncased).
 
 ## Fine-Tuning
 The fine-tuning process involves training the pre-trained model on a custom dataset containing context-question-answer triplets. The objective is to adapt the model to generate accurate and contextually relevant answers to user queries.
