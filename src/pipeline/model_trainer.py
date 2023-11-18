@@ -1,20 +1,15 @@
-import os
-import sys
-import torch
 from torch.nn.functional import pad
-import tensorflow as tf
 from datasets import Dataset
 from dataclasses import dataclass
-import transformers
-from transformers import TrainingArguments, Trainer, create_optimizer
+from transformers import create_optimizer
+from huggingface_hub import notebook_login
+notebook_login()
 
 from src.logger import logging
 from src.components.get_tokenizer_model import GetModels
 from src.utils import save_model
 from src.exception import CustomException
 from src.components.data_tokenization import DataTokenizer
-from huggingface_hub import notebook_login
-notebook_login()
 
 
 @dataclass

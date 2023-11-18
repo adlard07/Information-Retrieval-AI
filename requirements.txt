@@ -1,7 +1,13 @@
+sys
+json
+torch
 PyPDF2
 typing
-logging
 datetime
+datasets
+functools
 setuptools
+dataclasses
 transformers
+huggingface_hub
 -e.

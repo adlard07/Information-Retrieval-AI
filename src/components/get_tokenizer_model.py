@@ -1,6 +1,5 @@
 import os
 import sys
-import tensorflow as tf
 from dataclasses import dataclass
 from transformers import TFAutoModelForQuestionAnswering, AutoTokenizer
 
